@@ -2,11 +2,6 @@
 //import * as dotenv from "dotenv";
 import './lib/loadEnv'
 import server from './app'
-import database from './database/database'
-
-//// setup
-//dotenv.config()
-const db = new database
 
 //// config
 const port = Number(process.env.port)

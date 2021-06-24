@@ -79,7 +79,7 @@ export async function dbWrite(req: Request, res: Response): Promise<void> {
     try {
 
         let result = await newVideo.save()
-        console.log(result)
+        console.log('write result:', result)
 
         return respond.json(res, { 
             status : "Created",
@@ -106,7 +106,6 @@ export async function dbRead(req: Request, res: Response): Promise<void> {
         let searchData = { name : 'test' }
 
         const video: IVideoDocument | null = await Video.findOne( searchData )
-        console.log(video)
 
         if ( video !== null ) {
             

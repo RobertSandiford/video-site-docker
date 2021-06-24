@@ -1,3 +1,1 @@
 .env
-mongo-db-data/*
-!mongo-db-data/.please-track-this-folder.txt

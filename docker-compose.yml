@@ -4,15 +4,19 @@ services:
 
   node-app:
     build: ./node-app
+    container_name: video-site-docker-node-app
     ports:
       - "4000:4000"
+    links:
+      - "mongo-db:mongo-db"
 
   mongo-db:
     image: mongo
+    container_name: video-site-docker-mongo-db
     environment:
       MONGO_INITDB_ROOT_USERNAME: root
       MONGO_INITDB_ROOT_PASSWORD: ${MONGO_INITDB_ROOT_PASSWORD}
     ports:
       - 27017:27017
     volumes:
-      - ./mongo-db-data:/data/db
+      - ./mongo-db/data:/data/db

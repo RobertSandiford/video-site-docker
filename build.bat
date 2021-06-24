@@ -1,4 +1,5 @@
+call down.bat
 cd node-app
-tsc
+call npx tsc
 cd ..
-up.bat
+docker-compose up -d --build
