@@ -1,9 +1,11 @@
 # Tested S3 file uploads and downloads
 
-using:
-Node.js
-TypeScript
-Express
-Multer
-S3
-Jest
+Using:
+- Node.js
+- TypeScript
+- Express
+- Multer
+- S3
+- Mongoose/MongoDB (kinda)
+- Jest
+- Docker
