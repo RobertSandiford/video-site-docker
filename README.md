@@ -1,4 +1,4 @@
-# Tested S3 file uploads and downloads
+# Node.js backend with S3 uploads/downloads and Jest tests
 
 Using:
 - Node.js
