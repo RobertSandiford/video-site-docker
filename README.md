@@ -6,5 +6,6 @@ Using:
 - Express
 - Multer
 - S3
+- Mongoose/MongoDB (kinda)
 - Jest
 - Docker
