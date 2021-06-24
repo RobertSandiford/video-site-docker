@@ -1,12 +1,12 @@
-import dotenv from 'dotenv'
-dotenv.config()
+import '../../lib/loadEnv'
+
 import { S3Client, 
         HeadObjectCommand, HeadObjectCommandOutput,
         GetObjectCommand, GetObjectCommandOutput,
         PutObjectCommand,
         DeleteObjectCommand } 
     from '@aws-sdk/client-s3'
-//const { S3Client, AbortMultipartUploadCommand } = require("@aws-sdk/client-s3");
+    
 import fs from 'fs'
 import { Express } from 'express'
 import { Readable } from 'stream';

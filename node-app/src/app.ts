@@ -1,11 +1,12 @@
 //// imports
-import dotenv from "dotenv";
+//import dotenv from "dotenv";
+import './lib/loadEnv'
 import express from "express";
 //import database from "./database/database";
 import mainRoutes from './routes/mainRoutes'
 
 //// setup
-dotenv.config()
+//dotenv.config()
 const app = express()
 
 //// middleware
