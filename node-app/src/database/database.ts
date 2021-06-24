@@ -17,7 +17,15 @@ export default class database {
     
     async connect(this: database): Promise<boolean> {
 
-        const uri = (process.env.mongo_db_url!) + '?retryWrites=true&w=majority'
+        const mongo_db_host = process.env.mongo_db_host
+        const mongo_db_port = process.env.mongo_db_port
+        const mongo_db_user = process.env.mongo_db_user
+        const mongo_db_pass = process.env.mongo_db_pass
+        const mongo_db_database = process.env.mongo_db_database
+
+        const mongo_db_uri 
+            = `mongodb://${mongo_db_user}:${mongo_db_pass}@${mongo_db_host}:${mongo_db_port}/${mongo_db_database}`
+            + `?retryWrites=true&w=majority`
         
         if (this.db) {
             console.log('Connect: Database connection already exists')
@@ -25,7 +33,7 @@ export default class database {
         }
 
         try {
-            await mongoose.connect(uri, {
+            await mongoose.connect(mongo_db_uri, {
                 useNewUrlParser: true,
                 useFindAndModify: true,
                 useUnifiedTopology: true,
