@@ -2,10 +2,7 @@ import { Request, Response } from 'express';
 import * as respond from './respond'
 //import { IVideo, Video } from '../database/video';
 import * as s3 from '../lib/s3'
-import { GetObjectCommandOutput } from '@aws-sdk/client-s3'
 import { paramEmpty }  from '../lib/queries'
-import { Readable } from 'stream';
-import { streamToString }  from '../lib/streams'
 
 
 // home page - placeholder
@@ -61,8 +58,6 @@ export async function find(req: Request, res: Response): Promise<void> {
     let file = await s3.get(name)
     
     // we are assuming that file is being retrieved correctly
-
-    // read the file stream asyncronously to get the contents
 
     respond.json(res, { 
         status : "OK",
