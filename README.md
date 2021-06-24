@@ -1,6 +1,6 @@
 # Tested S3 file uploads and downloads
 
-- using:
+Using:
 - Node.js
 - TypeScript
 - Express
