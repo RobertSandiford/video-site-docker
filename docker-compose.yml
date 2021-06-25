@@ -11,11 +11,17 @@ services:
       - "mongo-db:mongo-db"
 
   mongo-db:
-    image: mongo
+    build: 
+      context: ./mongo-db
+      args:
     container_name: video-site-docker-mongo-db
+    restart: unless-stopped
     environment:
       MONGO_INITDB_ROOT_USERNAME: root
       MONGO_INITDB_ROOT_PASSWORD: ${MONGO_INITDB_ROOT_PASSWORD}
+      MONGO_INITDB_DATABASE: ${MONGO_INITDB_DATABASE}
+      mongo_db_user: ${mongo_db_user}
+      mongo_db_pass: ${mongo_db_pass}
     ports:
       - 27017:27017
     volumes:

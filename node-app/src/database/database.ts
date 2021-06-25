@@ -46,6 +46,7 @@ export default class database {
                 useFindAndModify: true,
                 useUnifiedTopology: true,
                 useCreateIndex: true,
+                serverSelectionTimeoutMS: 60000,
             })
 
             this.connection = mongoose.connection
