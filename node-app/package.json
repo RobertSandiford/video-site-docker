@@ -9,6 +9,7 @@
     "dev-start": "nodemon dist/start.js",
     "dev": "concurrently \"npm run build\" \"npm run dev-start\"",
     "test": "jest --runInBand --no-cache",
+    "testoh": "jest --runInBand --no-cache --detectOpenHandles",
     "testwatch": "jest --watch --runInBand --no-cache",
     "sim": "node tests/main.sim.js"
   },

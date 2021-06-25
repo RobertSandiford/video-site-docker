@@ -5,18 +5,23 @@ import express from "express";
 import database from './database/database'
 import mainRoutes from './routes/mainRoutes'
 
-//// setup
-const db = new database
-db.connect()
+export async function createApp() {
 
-const app = express()
+    //// setup
+    const db = new database
+    await db.connect()
 
-//// middleware
-app.use( express.json() );
-app.use( express.urlencoded({extended: true}) )
+    const app = express()
 
-//// routes
-mainRoutes(app);
+    //// middleware
+    app.use( express.json() );
+    app.use( express.urlencoded({extended: true}) )
 
+    //// routes
+    mainRoutes(app);
+    
+    return app
 
-export default app;
+}
+
+//export default app;

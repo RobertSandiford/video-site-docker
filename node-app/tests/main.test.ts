@@ -1,4 +1,4 @@
-import app from '../src/app'
+import { createApp } from '../src/app'
 import supertest from 'supertest';
 import database from '../src/database/database'
 import * as testFuncs from './funcs'
@@ -6,21 +6,34 @@ import { IVideo, Video } from "../src/database/video"
 import * as s3 from '../src/lib/s3'
 import fs from 'fs'
 
+let app: Express.Application
 
-let db: database
+beforeAll(async () => {
+    app = await createApp()
+})
+
+//let db: database
 describe("The Database", () => {
+    //jest.setTimeout(5000)
     it("connects", async () => {
-        db = new database
+        const db = new database
         const result = await db.connect()
+
+        console.log('connect result', result)
         expect(result).toBe(true)
+
+        // cleanup
+        await db.disconnect()
     })
 })
+
 
 describe("The App", () => {
     it("loads", async () => {
         expect(app).not.toBe(null)
     })
 })
+
 
 describe("The / route", () => {
     let route = ''

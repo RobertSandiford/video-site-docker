@@ -1,11 +1,19 @@
 //// imports
 //import * as dotenv from "dotenv";
 import './lib/loadEnv'
-import server from './app'
+import { createApp } from './app'
 
-//// config
-const port = Number(process.env.port)
-if (isNaN(port)) { console.log("No port, exiting"); process.exit() }
+const start = async () => {
 
-//// start listening
-server.listen(port, () => console.log("App listening on port " + port));
+    //// config
+    const port = Number(process.env.port)
+    if (isNaN(port)) { console.log("No port, exiting"); process.exit() }
+
+    const app = await createApp()
+
+    //// start listening
+    app.listen(port, () => console.log("App listening on port " + port));
+
+}
+
+start()
