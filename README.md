@@ -1,4 +1,4 @@
-# Node.js backend with S3 uploads/downloads and Jest tests
+# Containerised Node.js + Mongo + S3 file upload/download backend Jest tests
 
 Using:
 - Node.js
